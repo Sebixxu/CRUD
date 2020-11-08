@@ -1,0 +1,5 @@
+CREATE DATABASE IF NOT EXISTS PFSwChO;
+CREATE TABLE IF NOT EXISTS PFSwCho.dane(
+    name VARCHAR(30),
+    surname VARCHAR(30),
+    age INT(3))
