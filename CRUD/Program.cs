@@ -12,8 +12,9 @@ namespace CRUD
         static void Main(string[] args)
         {
             DbConnection.OpenConnection(DbConnection.GetConnection());
-
             DbManagement db = new DbManagement();
+            
+            db.CreateDb();
 
             var isAlive = true;
 
