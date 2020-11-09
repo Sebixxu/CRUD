@@ -61,5 +61,13 @@ namespace CRUD
 
             return users;
         }
+
+        public void DeleteValue(int id)
+        {
+            using (var command = new MySqlCommand($"DELETE FROM PFSwChO.dane WHERE id = {id}", DbConnection.GetConnection()))
+            {
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }
