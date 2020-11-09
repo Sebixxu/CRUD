@@ -9,7 +9,7 @@ namespace CRUD
 {
     public class DbConnection : IDisposable
     {
-        private static string connectionString => "server=10.0.10.3;port=3306;userid=STomczak;password=;database=mysql;";
+        private static string connectionString => "server=10.0.10.3;port=3306;userid=STomczak;password=root;database=mysql;";
 
         private static MySqlConnection SqlConnection;
 
