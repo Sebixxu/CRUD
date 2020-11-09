@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using MySql.Data.MySqlClient;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace CRUD
 {
     public class DbConnection : IDisposable
     {
-        private static string connectionString =
-            "server=localhost;port=3306;userid=root;password=;database=world;";
+        private static string connectionString => SetConnectionString();
 
         private static MySqlConnection SqlConnection;
 
@@ -24,8 +27,20 @@ namespace CRUD
             sqlConnection.Open();
         }
 
-        public void Dispose()
+        public void Dispose() //to chyba nie działa KEKW
         {
+            SqlConnection.Close();
+            SqlConnection.Dispose();
+        }
+
+        private static string SetConnectionString()
+        {
+            using (StreamReader r = new StreamReader(".\\dbConfig.json"))
+            {
+                string json = r.ReadToEnd();
+                var a =  JObject.Parse(json);// ?? throw new Exception("Fail to read and load connection string from json file.");
+                return a["connectionString"].ToString();
+            }
         }
     }
 }

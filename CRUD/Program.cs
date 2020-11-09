@@ -39,7 +39,7 @@ namespace CRUD
                 {
                     while (rdr.Read())
                     {
-                        Console.WriteLine("Duap"); //TODO Reader jest jak komunista, trzeba to naprawić
+                        Console.WriteLine($"{rdr["name"]} - {rdr["surname"]} - {rdr["age"]}"); //TODO Reader jest jak komunista, trzeba to naprawić
                     }
                 }
             }
