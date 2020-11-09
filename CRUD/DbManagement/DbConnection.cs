@@ -35,7 +35,7 @@ namespace CRUD
 
         private static string SetConnectionString()
         {
-            using (StreamReader r = new StreamReader(".\\dbConfig.json"))
+            using (StreamReader r = new StreamReader("dbConfig.json"))
             {
                 string json = r.ReadToEnd();
                 var a =  JObject.Parse(json);// ?? throw new Exception("Fail to read and load connection string from json file.");
