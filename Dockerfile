@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:3.1-sdk
+FROM mcr.microsoft.com/dotnet/sdk:3.1
 WORKDIR /test-app/
 
 COPY /CRUD/*.csproj ./
