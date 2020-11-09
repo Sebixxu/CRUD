@@ -9,9 +9,9 @@ namespace CRUD
     {
         static void Main(string[] args)
         {
-            DbConnection.OpenConnection(DbConnection.GetConnection());
+            var dbManagement = new DbManagement();
 
-            //Konsola - UI
+            DbConnection.OpenConnection(DbConnection.GetConnection());
         }
     }
 }

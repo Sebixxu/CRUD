@@ -42,7 +42,7 @@ namespace CRUD
         {
             var users = new List<User>();
 
-            using (var command = new MySqlCommand("SELECT name, surname, age FROM PFSwChO.dane", DbConnection.GetConnection()))
+            using (var command = new MySqlCommand("SELECT id, name, surname, age FROM PFSwChO.dane", DbConnection.GetConnection()))
             {
                 using (MySqlDataReader rdr = command.ExecuteReader())
                 {
@@ -60,6 +60,14 @@ namespace CRUD
             }
 
             return users;
+        }
+
+        public void DeleteValue(int id)
+        {
+            using (var command = new MySqlCommand($"DELETE FROM PFSwChO.dane WHERE id = {id}", DbConnection.GetConnection()))
+            {
+                command.ExecuteNonQuery();
+            }
         }
     }
 }
