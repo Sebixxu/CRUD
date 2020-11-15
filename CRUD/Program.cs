@@ -20,21 +20,22 @@ namespace CRUD
 
             while (isAlive)
             {
-                Console.WriteLine("Prosty CRUD dla tabeli Users");
                 Console.WriteLine("");
 
-                Console.WriteLine("----Menu----");
+                Console.WriteLine("CRUD");
+                Console.WriteLine("~~~~Menu~~~~");
                 Console.WriteLine("1) Dodaj");
                 Console.WriteLine("2) Wyświetl wszystkich użytkowników");
                 Console.WriteLine("3) Modyfikuj");
                 Console.WriteLine("4) Usuń");
                 Console.WriteLine("5) Zamknij");
+                Console.WriteLine("Podaj wybór - liczbę z listy poniżej.");
 
                 var data = Console.ReadLine();
 
                 if (data == "5")
                     isAlive = false;
-                else if (data == "1") //Dodaj
+                else if (data == "1") //Add record
                 {
                     Console.WriteLine("Podaj imie: ");
                     var name = Console.ReadLine();
@@ -45,7 +46,7 @@ namespace CRUD
 
                     db.InsertValues(name, surname, age);
                 }
-                else if (data == "2") //Wyświetl
+                else if (data == "2") //Show record
                 {
                     List<User> users = db.SelectValues();
 
@@ -59,9 +60,9 @@ namespace CRUD
                         Console.WriteLine("------------");
                     }
                 }
-                else if (data == "3") //Edytuj
+                else if (data == "3") //Edit values
                 {
-                    Console.WriteLine("Podaj id użytkownika: ");
+                    Console.WriteLine("Podaj id użytkownika do modyfikacji: ");
 
                     var id = Console.ReadLine();
 
@@ -89,7 +90,7 @@ namespace CRUD
 
                     Console.WriteLine("Zmodyfikowano pomyślnie");
                 }
-                else if (data == "4") //Usuń
+                else if (data == "4") //Delete value
                 {
                     Console.WriteLine("Podaj id: ");
                     int id = Int32.Parse(Console.ReadLine());
